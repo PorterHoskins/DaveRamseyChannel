@@ -32,6 +32,7 @@ class LiveViewController: UIViewController {
 				}
 
 				let player = AVPlayer(URL: streamUrl)
+				player.addObserver(self, forKeyPath: "status", options: [.New, .Initial], context: nil)
 				self.playerViewController?.player = player
 				player.play()
 			}
@@ -53,7 +54,21 @@ class LiveViewController: UIViewController {
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if let playerViewController = segue.destinationViewController as? AVPlayerViewController {
 			self.playerViewController = playerViewController
-//			playerViewController.requiresLinearPlayback = true
+			playerViewController.requiresLinearPlayback = true
+			playerViewController.view.hidden = true
+		}
+	}
+
+	override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+		guard let keyPath = keyPath , let new = change?["new"] as? Int, let status = AVPlayerStatus(rawValue: new) where keyPath == "status" else {
+			return
+		}
+
+		switch status {
+		case .ReadyToPlay:
+			playerViewController?.view.hidden = false
+		default:
+			playerViewController?.view.hidden = true
 		}
 	}
 }

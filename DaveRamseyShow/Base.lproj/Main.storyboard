@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
     </dependencies>
     <scenes>
-        <!--Live-->
+        <!--Live View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="LiveViewController" customModule="DaveRamseyShow" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,7 +25,7 @@
                             </containerView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="1ZU-bv-qu3" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="Epc-e6-cbb"/>
                             <constraint firstAttribute="trailing" secondItem="1ZU-bv-qu3" secondAttribute="trailing" id="tns-Vg-GMN"/>
@@ -33,7 +33,6 @@
                             <constraint firstItem="1ZU-bv-qu3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="wRA-r8-4ss"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Live" image="first" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,7 +47,4 @@
             <point key="canvasLocation" x="4395" y="-640"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="first" width="30" height="30"/>
-    </resources>
 </document>
