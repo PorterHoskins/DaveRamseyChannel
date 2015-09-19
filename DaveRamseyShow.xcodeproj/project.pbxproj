@@ -7,21 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD4B94381BAD9D26003915EB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4B94371BAD9D26003915EB /* SwiftyJSON.framework */; };
 		BDBEEC0F1BAD9B520085C017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBEEC0E1BAD9B520085C017 /* AppDelegate.swift */; };
-		BDBEEC111BAD9B520085C017 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBEEC101BAD9B520085C017 /* FirstViewController.swift */; };
-		BDBEEC131BAD9B520085C017 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBEEC121BAD9B520085C017 /* SecondViewController.swift */; };
+		BDBEEC111BAD9B520085C017 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBEEC101BAD9B520085C017 /* LiveViewController.swift */; };
 		BDBEEC161BAD9B520085C017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDBEEC141BAD9B520085C017 /* Main.storyboard */; };
 		BDBEEC181BAD9B520085C017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDBEEC171BAD9B520085C017 /* Assets.xcassets */; };
+		BDEB13A41BAD9EC900E0C837 /* PSOperations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDEB13A31BAD9EC900E0C837 /* PSOperations.framework */; };
+		BDFAEFFA1BAD9F4E00E8CE58 /* GetChannelOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFAEFF91BAD9F4E00E8CE58 /* GetChannelOperation.swift */; };
+		BDFAEFFC1BADA85700E8CE58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDFAEFFB1BADA85700E8CE58 /* AVFoundation.framework */; };
+		BDFAEFFE1BADA85D00E8CE58 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDFAEFFD1BADA85D00E8CE58 /* AVKit.framework */; };
+		BDFAF0001BADAF8600E8CE58 /* PSOperations.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDEB13A31BAD9EC900E0C837 /* PSOperations.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BDFAF0011BADAF8600E8CE58 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BD4B94371BAD9D26003915EB /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BDFAEFFF1BADAF7400E8CE58 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BDFAF0001BADAF8600E8CE58 /* PSOperations.framework in CopyFiles */,
+				BDFAF0011BADAF8600E8CE58 /* SwiftyJSON.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		BD4B94371BAD9D26003915EB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDBEEC0B1BAD9B520085C017 /* DaveRamseyShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaveRamseyShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDBEEC0E1BAD9B520085C017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BDBEEC101BAD9B520085C017 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		BDBEEC121BAD9B520085C017 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BDBEEC101BAD9B520085C017 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		BDBEEC151BAD9B520085C017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BDBEEC171BAD9B520085C017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDBEEC191BAD9B520085C017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDEB13A31BAD9EC900E0C837 /* PSOperations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PSOperations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDFAEFF91BAD9F4E00E8CE58 /* GetChannelOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetChannelOperation.swift; sourceTree = "<group>"; };
+		BDFAEFFB1BADA85700E8CE58 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BDFAEFFD1BADA85D00E8CE58 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,16 +53,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDFAEFFE1BADA85D00E8CE58 /* AVKit.framework in Frameworks */,
+				BDFAEFFC1BADA85700E8CE58 /* AVFoundation.framework in Frameworks */,
+				BD4B94381BAD9D26003915EB /* SwiftyJSON.framework in Frameworks */,
+				BDEB13A41BAD9EC900E0C837 /* PSOperations.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD4B94391BAD9D33003915EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDFAEFFD1BADA85D00E8CE58 /* AVKit.framework */,
+				BDFAEFFB1BADA85700E8CE58 /* AVFoundation.framework */,
+				BDEB13A31BAD9EC900E0C837 /* PSOperations.framework */,
+				BD4B94371BAD9D26003915EB /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BDBEEC021BAD9B520085C017 = {
 			isa = PBXGroup;
 			children = (
 				BDBEEC0D1BAD9B520085C017 /* DaveRamseyShow */,
+				BD4B94391BAD9D33003915EB /* Frameworks */,
 				BDBEEC0C1BAD9B520085C017 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,8 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				BDBEEC0E1BAD9B520085C017 /* AppDelegate.swift */,
-				BDBEEC101BAD9B520085C017 /* FirstViewController.swift */,
-				BDBEEC121BAD9B520085C017 /* SecondViewController.swift */,
+				BDBEEC101BAD9B520085C017 /* LiveViewController.swift */,
+				BDFAEFF91BAD9F4E00E8CE58 /* GetChannelOperation.swift */,
 				BDBEEC141BAD9B520085C017 /* Main.storyboard */,
 				BDBEEC171BAD9B520085C017 /* Assets.xcassets */,
 				BDBEEC191BAD9B520085C017 /* Info.plist */,
@@ -74,6 +114,7 @@
 				BDBEEC071BAD9B520085C017 /* Sources */,
 				BDBEEC081BAD9B520085C017 /* Frameworks */,
 				BDBEEC091BAD9B520085C017 /* Resources */,
+				BDFAEFFF1BADAF7400E8CE58 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -90,11 +131,13 @@
 		BDBEEC031BAD9B520085C017 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Porter Hoskins";
 				TargetAttributes = {
 					BDBEEC0A1BAD9B520085C017 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 9WF89A89NX;
 					};
 				};
 			};
@@ -133,9 +176,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDBEEC131BAD9B520085C017 /* SecondViewController.swift in Sources */,
 				BDBEEC0F1BAD9B520085C017 /* AppDelegate.swift in Sources */,
-				BDBEEC111BAD9B520085C017 /* FirstViewController.swift in Sources */,
+				BDFAEFFA1BAD9F4E00E8CE58 /* GetChannelOperation.swift in Sources */,
+				BDBEEC111BAD9B520085C017 /* LiveViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +282,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/build/Debug-appletvos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/PSOperations/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = DaveRamseyShow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.porterhoskins.DaveRamseyShow;
@@ -251,6 +300,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/build/Debug-appletvos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/PSOperations/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = DaveRamseyShow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.porterhoskins.DaveRamseyShow;
@@ -277,6 +332,7 @@
 				BDBEEC1E1BAD9B520085C017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

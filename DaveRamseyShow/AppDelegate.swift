@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import PSOperations
+
+let operationQueue = OperationQueue()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

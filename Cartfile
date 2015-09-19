@@ -1,0 +1,3 @@
+github "PorterHoskins/SwiftyJSON" "tvOS"
+
+github "pluralsight/PSOperations" "tvOSSupport"
