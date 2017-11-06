@@ -22,26 +22,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="YmA-tV-oEn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="60" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="YmA-tV-oEn">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="2jS-f6-Jfu" style="IBUITableViewCellStyleDefault" id="pg7-Yi-FZv">
-                                        <rect key="frame" x="0.0" y="66" width="1740" height="66"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="pg7-Yi-FZv" customClass="EpisodeCell" customModule="DaveRamseyShow" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="66" width="1920" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pg7-Yi-FZv" id="Uj2-YJ-VWJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="1740" height="66"/>
+                                            <rect key="frame" x="90" y="0.0" width="1740" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2jS-f6-Jfu">
-                                                    <rect key="frame" x="20" y="0.0" width="1700" height="66"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-a9-wUd">
+                                                    <rect key="frame" x="0.0" y="20" width="1740" height="26"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yG6-a9-wUd" firstAttribute="leading" secondItem="Uj2-YJ-VWJ" secondAttribute="leading" id="Tgg-jS-vPA"/>
+                                                <constraint firstItem="yG6-a9-wUd" firstAttribute="top" secondItem="Uj2-YJ-VWJ" secondAttribute="top" constant="20" id="UDX-la-X2z"/>
+                                                <constraint firstAttribute="bottom" secondItem="yG6-a9-wUd" secondAttribute="bottom" constant="20" id="VPo-s1-SoM"/>
+                                                <constraint firstAttribute="trailing" secondItem="yG6-a9-wUd" secondAttribute="trailing" id="fIE-wJ-JVp"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="yG6-a9-wUd" id="pKA-h6-rvt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

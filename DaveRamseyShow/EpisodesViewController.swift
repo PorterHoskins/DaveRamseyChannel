@@ -31,6 +31,7 @@ class EpisodesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableViewAutomaticDimension
 
         DaveRamseyShowAPI.fetchEpisodes { [weak self] episodes in
             self?.episodes = episodes
@@ -60,14 +61,14 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodes[section].showHours.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let show = episodes[indexPath.section].showHours[indexPath.row]
+        let shows = episodes[indexPath.section].showHours
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = show.title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EpisodeCell
+        cell.label?.text = shows.map({ $0.title }).joined(separator: ", ")
         
         return cell
     }
@@ -86,4 +87,8 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+}
+
+class EpisodeCell: UITableViewCell {
+    @IBOutlet var label: UILabel!
 }
