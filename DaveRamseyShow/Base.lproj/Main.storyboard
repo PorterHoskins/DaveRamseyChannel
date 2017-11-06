@@ -1,42 +1,109 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9046" systemVersion="15A282b" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9pv-A4-QxB">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="13529" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c1I-nA-hcb">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Live View Controller-->
-        <scene sceneID="hNz-n2-bh7">
+        <!--Episodes-->
+        <scene sceneID="2rj-ej-Ryu">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="LiveViewController" customModule="DaveRamseyShow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NvC-JL-09m" customClass="EpisodesViewController" customModule="DaveRamseyShow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
-                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
+                        <viewControllerLayoutGuide type="top" id="d0T-8B-SQ2"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Ay-kH-7dv"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                    <view key="view" contentMode="scaleToFill" id="PEl-vc-lnY">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZU-bv-qu3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="YmA-tV-oEn">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="2jS-f6-Jfu" style="IBUITableViewCellStyleDefault" id="pg7-Yi-FZv">
+                                        <rect key="frame" x="0.0" y="66" width="1740" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pg7-Yi-FZv" id="Uj2-YJ-VWJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="1740" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2jS-f6-Jfu">
+                                                    <rect key="frame" x="20" y="0.0" width="1700" height="66"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <segue destination="6Di-yq-UuC" kind="embed" id="i5b-XK-sOa"/>
+                                    <outlet property="dataSource" destination="NvC-JL-09m" id="2Oa-en-bm1"/>
+                                    <outlet property="delegate" destination="NvC-JL-09m" id="67z-9a-kJM"/>
                                 </connections>
-                            </containerView>
+                            </tableView>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="1ZU-bv-qu3" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="Epc-e6-cbb"/>
-                            <constraint firstAttribute="trailing" secondItem="1ZU-bv-qu3" secondAttribute="trailing" id="tns-Vg-GMN"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="1ZU-bv-qu3" secondAttribute="bottom" id="v1Z-Gf-BMf"/>
-                            <constraint firstItem="1ZU-bv-qu3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="wRA-r8-4ss"/>
+                            <constraint firstAttribute="bottom" secondItem="YmA-tV-oEn" secondAttribute="bottom" id="8t7-Iz-qyf"/>
+                            <constraint firstAttribute="trailing" secondItem="YmA-tV-oEn" secondAttribute="trailing" id="9cs-1E-pZV"/>
+                            <constraint firstItem="YmA-tV-oEn" firstAttribute="leading" secondItem="PEl-vc-lnY" secondAttribute="leading" id="YMg-Xv-hi3"/>
+                            <constraint firstAttribute="top" secondItem="YmA-tV-oEn" secondAttribute="top" id="f1Z-cp-8kx"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="cFq-N8-m7V"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Episodes" id="ZPu-tG-2UM"/>
+                    <connections>
+                        <outlet property="tableView" destination="YmA-tV-oEn" id="Cho-gT-PFT"/>
+                        <segue destination="6Di-yq-UuC" kind="presentation" identifier="play" id="h5c-t1-UiJ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a9W-fC-rcu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="-640"/>
+            <point key="canvasLocation" x="3270" y="136"/>
+        </scene>
+        <!--Live-->
+        <scene sceneID="Esm-f9-m6B">
+            <objects>
+                <viewController id="e4s-az-VI9" customClass="LiveViewController" customModule="DaveRamseyShow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HrI-ns-0o6"/>
+                        <viewControllerLayoutGuide type="bottom" id="7xh-ah-CHu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z7Y-oJ-ahO">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="iVJ-Ck-OoC"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Live" id="891-wK-gw2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDd-Rm-Ibz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3270" y="-1107"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="1uX-XD-7j2">
+            <objects>
+                <tabBarController id="c1I-nA-hcb" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qXP-qS-0Yy">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="e4s-az-VI9" kind="relationship" relationship="viewControllers" id="jF9-Lm-HeK"/>
+                        <segue destination="NvC-JL-09m" kind="relationship" relationship="viewControllers" id="uIl-YY-THF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQz-xp-7lA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1131" y="-530"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="cfJ-wN-rkf">
@@ -44,7 +111,7 @@
                 <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="6Di-yq-UuC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZSl-4L-O02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4395" y="-640"/>
+            <point key="canvasLocation" x="5984" y="-582"/>
         </scene>
     </scenes>
 </document>

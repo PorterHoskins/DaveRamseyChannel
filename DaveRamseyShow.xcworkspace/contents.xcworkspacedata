@@ -5,9 +5,9 @@
       location = "group:DaveRamseyShow.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Carthage/Checkouts/PSOperations/PSOperations.xcodeproj">
+      location = "group:/Users/porterhoskins/Developer/DaveRamseyChannel/DaveRamseyAPI/DaveRamseyShowAPI.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
+      location = "group:Alamofire-4.5.1/Alamofire.xcodeproj">
    </FileRef>
 </Workspace>
