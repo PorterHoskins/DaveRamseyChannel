@@ -38,7 +38,7 @@ public func fetchEpisodes(completion: @escaping (_ episodes: [Episode]) -> ()) -
 }
 
 @discardableResult
-public func fetchLiveShow(completion: @escaping (_ isLive: Bool, _ secondsUntilNextShow: Double?) -> ()) -> DataRequest {
+public func fetchIsShowLive(completion: @escaping (_ isLive: Bool, _ secondsUntilNextShow: Double?) -> ()) -> DataRequest {
     return Alamofire.request("https://www.daveramsey.com/show/stats/is-show-live", method: .get).responseJSON { response in
         var isLive = false
         var secondsUntilNextShow: Double?
@@ -49,5 +49,23 @@ public func fetchLiveShow(completion: @escaping (_ isLive: Bool, _ secondsUntilN
         guard let json = response.result.value as? [String: Any] else { return }
         isLive = json["live"] as? Bool ?? false
         secondsUntilNextShow = json["seconds_till_next_show"] as? Double
+    }
+}
+
+@discardableResult
+public func fetchLiveShow(completion: @escaping (_ response: LiveShowResponse?) -> ()) -> DataRequest {
+    return Alamofire.request("https://www.daveramsey.com/show/stats/live-playlist-data", method: .get).response { response in
+        var showResponse: LiveShowResponse?
+        defer {
+            completion(showResponse)
+        }
+        
+        guard let data = response.data else { return }
+        
+        do {
+            showResponse = try decoder.decode(LiveShowResponse.self, from: data)
+        } catch {
+            print("error fetching live show \(error)")
+        }
     }
 }

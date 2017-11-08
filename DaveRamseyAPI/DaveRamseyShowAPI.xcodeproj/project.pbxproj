@@ -11,6 +11,7 @@
 		040B90ED1FB004F500A5070D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B90EE1FB004F500A5070D /* Alamofire.framework */; };
 		040B90F91FB0059000A5070D /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B90F81FB0059000A5070D /* Episode.swift */; };
 		040B90FB1FB006A200A5070D /* ShowHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B90FA1FB006A200A5070D /* ShowHour.swift */; };
+		045A6A681FB2A6AC00017F79 /* LiveShowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A6A671FB2A6AC00017F79 /* LiveShowResponse.swift */; };
 		0491C4FD1FAFD7F800F6C139 /* DaveRamseyShowAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0491C4F31FAFD7F700F6C139 /* DaveRamseyShowAPI.framework */; };
 		0491C5021FAFD7F800F6C139 /* DaveRamseyAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491C5011FAFD7F800F6C139 /* DaveRamseyAPITests.swift */; };
 		0491C5041FAFD7F800F6C139 /* DaveRamseyAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 0491C4F61FAFD7F700F6C139 /* DaveRamseyAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,6 +32,7 @@
 		040B90EE1FB004F500A5070D /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		040B90F81FB0059000A5070D /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		040B90FA1FB006A200A5070D /* ShowHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowHour.swift; sourceTree = "<group>"; };
+		045A6A671FB2A6AC00017F79 /* LiveShowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveShowResponse.swift; sourceTree = "<group>"; };
 		0491C4F31FAFD7F700F6C139 /* DaveRamseyShowAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DaveRamseyShowAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0491C4F61FAFD7F700F6C139 /* DaveRamseyAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaveRamseyAPI.h; sourceTree = "<group>"; };
 		0491C4F71FAFD7F700F6C139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				040B90E91FB004D200A5070D /* API.swift */,
 				040B90F81FB0059000A5070D /* Episode.swift */,
 				040B90FA1FB006A200A5070D /* ShowHour.swift */,
+				045A6A671FB2A6AC00017F79 /* LiveShowResponse.swift */,
 				040B90EB1FB004D900A5070D /* Resources */,
 			);
 			path = DaveRamseyShowAPI;
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				040B90FB1FB006A200A5070D /* ShowHour.swift in Sources */,
+				045A6A681FB2A6AC00017F79 /* LiveShowResponse.swift in Sources */,
 				040B90EA1FB004D200A5070D /* API.swift in Sources */,
 				040B90F91FB0059000A5070D /* Episode.swift in Sources */,
 			);

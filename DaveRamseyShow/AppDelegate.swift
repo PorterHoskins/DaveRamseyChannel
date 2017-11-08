@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PSOperations
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

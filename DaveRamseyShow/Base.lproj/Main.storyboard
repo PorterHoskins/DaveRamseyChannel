@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="13529" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c1I-nA-hcb">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="13770" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c1I-nA-hcb">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,9 +87,46 @@
                     <view key="view" contentMode="scaleToFill" id="z7Y-oJ-ahO">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hda-aJ-LGa">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <connections>
+                                    <segue destination="6Di-yq-UuC" kind="embed" id="Qw9-1x-xO2"/>
+                                </connections>
+                            </containerView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgY-ch-ejO">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sED-HV-tsS">
+                                <rect key="frame" x="300" y="497" width="476" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Replay Lastest Episode"/>
+                                <connections>
+                                    <action selector="playPressed:" destination="e4s-az-VI9" eventType="primaryActionTriggered" id="63Y-wD-Pe4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Hda-aJ-LGa" firstAttribute="leading" secondItem="z7Y-oJ-ahO" secondAttribute="leading" id="2hb-ib-ter"/>
+                            <constraint firstAttribute="trailing" secondItem="Hda-aJ-LGa" secondAttribute="trailing" id="5Ms-6E-64l"/>
+                            <constraint firstItem="qgY-ch-ejO" firstAttribute="leading" secondItem="z7Y-oJ-ahO" secondAttribute="leading" id="9X8-9S-iAT"/>
+                            <constraint firstAttribute="bottom" secondItem="Hda-aJ-LGa" secondAttribute="bottom" id="9z2-md-Mhg"/>
+                            <constraint firstItem="sED-HV-tsS" firstAttribute="centerY" secondItem="qgY-ch-ejO" secondAttribute="centerY" id="Agf-PE-nXB"/>
+                            <constraint firstAttribute="bottom" secondItem="qgY-ch-ejO" secondAttribute="bottom" id="BuD-wY-NHE"/>
+                            <constraint firstAttribute="trailing" secondItem="qgY-ch-ejO" secondAttribute="trailing" id="Ffd-GL-Kct"/>
+                            <constraint firstItem="qgY-ch-ejO" firstAttribute="top" secondItem="z7Y-oJ-ahO" secondAttribute="top" id="IxG-ZX-tHq"/>
+                            <constraint firstItem="sED-HV-tsS" firstAttribute="leading" secondItem="qgY-ch-ejO" secondAttribute="leading" constant="300" id="Om5-3p-0Gw"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sED-HV-tsS" secondAttribute="trailing" constant="60" symbolic="YES" id="mjQ-x6-lbt"/>
+                            <constraint firstItem="Hda-aJ-LGa" firstAttribute="top" secondItem="z7Y-oJ-ahO" secondAttribute="top" id="ohp-6M-3NR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iVJ-Ck-OoC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Live" id="891-wK-gw2"/>
+                    <connections>
+                        <outlet property="overlayView" destination="qgY-ch-ejO" id="pzf-lA-Tji"/>
+                        <outlet property="playButton" destination="sED-HV-tsS" id="Rzv-qh-Jtc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDd-Rm-Ibz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,4 +159,7 @@
             <point key="canvasLocation" x="5984" y="-582"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Qw9-1x-xO2"/>
+    </inferredMetricsTieBreakers>
 </document>
