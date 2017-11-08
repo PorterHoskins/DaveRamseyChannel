@@ -19,6 +19,17 @@ class LiveViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     
     var playerViewController: AVPlayerViewController?
+    var videoURL: URL? {
+        didSet {
+            guard let videoURL = videoURL else { return }
+            
+            playerViewController?.player = AVPlayer(url: videoURL)
+            playerViewController?.player?.play()
+            playerViewController?.player?.isMuted = true
+            
+            playerViewController?.view.isHidden = false
+        }
+    }
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -36,17 +47,13 @@ class LiveViewController: UIViewController {
             Youtube.h264videosWithYoutubeURL(videoURL) { [weak self] videoInfo, error in
                 guard let videoURLString = videoInfo?["url"] as? String, let videoURL = URL(string: videoURLString) else { return }
                 DispatchQueue.main.async { [weak self] in
-                    self?.playerViewController?.player = AVPlayer(url: videoURL)
-                    self?.playerViewController?.player?.play()
-                    self?.playerViewController?.player?.isMuted = true
-                    
-                    self?.playerViewController?.view.isHidden = false
+                    self?.videoURL = videoURL
                 }
             }
         }
 	}
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         playerViewController?.player?.play()
@@ -63,32 +70,22 @@ class LiveViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let playerViewController = segue.destination as? AVPlayerViewController else { return }
+        guard segue.identifier == "play" else {
+            guard let playerViewController = segue.destination as? AVPlayerViewController else { return }
+            
+            self.playerViewController = playerViewController
+            playerViewController.view.isHidden = true
+            return
+        }
         
-        self.playerViewController = playerViewController
-        playerViewController.view.isHidden = true
+        guard let sender = sender as? URL, let playerViewController = segue.destination as? AVPlayerViewController else { return }
+        playerViewController.player = AVPlayer(url: sender)
+        playerViewController.player?.play()
+        
     }
     
     @IBAction func playPressed(_ sender: Any) {
-        overlayView.isHidden = true
-        playButton.isHidden = true
-        
-        let player = playerViewController?.player
-        player?.seek(to: kCMTimeZero)
-        player?.isMuted = false
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-//        guard let keyPath = keyPath, let new = change?[.new] as? Int, let status = AVPlayerStatus(rawValue: new), keyPath == "status" else {
-//            return
-//        }
-//
-//        switch status {
-//        case .readyToPlay:
-//            playerViewController?.view.isHidden = false
-//        default:
-//            playerViewController?.view.isHidden = true
-//        }
+        performSegue(withIdentifier: "play", sender: videoURL)
     }
 }
 

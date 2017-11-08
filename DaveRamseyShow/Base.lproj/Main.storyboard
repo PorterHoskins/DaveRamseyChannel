@@ -98,10 +98,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch Dave Ramsey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfq-CI-d9z">
+                                <rect key="frame" x="300" y="376" width="656" height="91"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sED-HV-tsS">
-                                <rect key="frame" x="300" y="497" width="476" height="86"/>
+                                <rect key="frame" x="300" y="497" width="416" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Replay Lastest Episode"/>
+                                <state key="normal" title="Replay Latest Show"/>
                                 <connections>
                                     <action selector="playPressed:" destination="e4s-az-VI9" eventType="primaryActionTriggered" id="63Y-wD-Pe4"/>
                                 </connections>
@@ -117,8 +123,10 @@
                             <constraint firstAttribute="trailing" secondItem="qgY-ch-ejO" secondAttribute="trailing" id="Ffd-GL-Kct"/>
                             <constraint firstItem="qgY-ch-ejO" firstAttribute="top" secondItem="z7Y-oJ-ahO" secondAttribute="top" id="IxG-ZX-tHq"/>
                             <constraint firstItem="sED-HV-tsS" firstAttribute="leading" secondItem="qgY-ch-ejO" secondAttribute="leading" constant="300" id="Om5-3p-0Gw"/>
+                            <constraint firstItem="sED-HV-tsS" firstAttribute="top" secondItem="Jfq-CI-d9z" secondAttribute="bottom" constant="30" id="UcD-a5-uAN"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sED-HV-tsS" secondAttribute="trailing" constant="60" symbolic="YES" id="mjQ-x6-lbt"/>
                             <constraint firstItem="Hda-aJ-LGa" firstAttribute="top" secondItem="z7Y-oJ-ahO" secondAttribute="top" id="ohp-6M-3NR"/>
+                            <constraint firstItem="Jfq-CI-d9z" firstAttribute="leading" secondItem="sED-HV-tsS" secondAttribute="leading" id="v2F-RM-Zin"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iVJ-Ck-OoC"/>
                     </view>
@@ -126,6 +134,7 @@
                     <connections>
                         <outlet property="overlayView" destination="qgY-ch-ejO" id="pzf-lA-Tji"/>
                         <outlet property="playButton" destination="sED-HV-tsS" id="Rzv-qh-Jtc"/>
+                        <segue destination="6Di-yq-UuC" kind="presentation" identifier="play" id="ul2-5E-bGR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDd-Rm-Ibz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -160,6 +169,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Qw9-1x-xO2"/>
+        <segue reference="ul2-5E-bGR"/>
     </inferredMetricsTieBreakers>
 </document>
