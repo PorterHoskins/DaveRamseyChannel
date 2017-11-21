@@ -12,12 +12,20 @@ import AVKit
 
 class EpisodesViewController: UIViewController {
     
+    struct EpisodeURL {
+        let showID: Int
+        let url: URL
+    }
+    
     let headerDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
         
         return formatter
     }()
+    
+    private var playerViewController: AVPlayerViewController?
+    private var selectedEpisode: EpisodeURL?
     
     @IBOutlet var tableView: UITableView!
     
@@ -37,6 +45,21 @@ class EpisodesViewController: UIViewController {
             self?.episodes = episodes
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Check to see if we are coming back from a playerViewController and save the duration
+        if let playerItem = playerViewController?.player?.currentItem, let episode = selectedEpisode {
+            let currentTime = CMTimeGetSeconds(playerItem.currentTime())
+            let duration = CMTimeGetSeconds(playerItem.duration)
+            
+            UserDefaults.updatePercentWatched(for: episode.showID, percentage: Double(currentTime / duration))
+            
+            self.playerViewController = nil
+            self.selectedEpisode = nil
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,9 +70,37 @@ class EpisodesViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let sender = sender as? URL, let playerViewController = segue.destination as? AVPlayerViewController else { return }
-        playerViewController.player = AVPlayer(url: sender)
-        playerViewController.player?.play()
+        guard let sender = sender as? EpisodeURL, let playerViewController = segue.destination as? AVPlayerViewController else { return }
+        let player = AVPlayer(url: sender.url)
+        playerViewController.player = player
+        
+        player.addObserver(self, forKeyPath: #keyPath(AVPlayer.status), options: .new, context: nil)
+        player.addObserver(self, forKeyPath: #keyPath(AVPlayer.currentItem.duration), options: .new, context: nil)
+        
+        
+        
+        
+        self.playerViewController = playerViewController
+        self.selectedEpisode = sender
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let player = object as? AVPlayer, let episode = selectedEpisode else { return }
+        print(change ?? [:])
+        
+        guard player.status == .readyToPlay else { return }
+        
+        guard let duration = player.currentItem?.duration, duration != kCMTimeIndefinite else {
+            player.play()
+            
+            return
+        }
+        
+        let watchedPercentage = UserDefaults.watchedPercentage(for: episode.showID)
+        let startTime = CMTimeMakeWithSeconds(watchedPercentage * Double(CMTimeGetSeconds(duration)), 1)
+        player.currentItem?.seek(to: startTime) { _ in
+            player.play()
+        }
     }
 
 }
@@ -83,7 +134,7 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         Youtube.h264videosWithYoutubeURL(show.watchURL) { [weak self] videoInfo, error in
             guard let videoURLString = videoInfo?["url"] as? String, let videoURL = URL(string: videoURLString) else { return }
             DispatchQueue.main.async {
-                self?.performSegue(withIdentifier: "play", sender: videoURL)
+                self?.performSegue(withIdentifier: "play", sender: EpisodeURL(showID: show.showID, url: videoURL))
             }
         }
     }

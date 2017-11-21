@@ -13,6 +13,7 @@
 		040B90F51FB0050F00A5070D /* DaveRamseyShowAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 040B90F31FB0050F00A5070D /* DaveRamseyShowAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		040B90FD1FB020C800A5070D /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B90FC1FB020C800A5070D /* EpisodesViewController.swift */; };
 		040B90FF1FB0260300A5070D /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B90FE1FB0260200A5070D /* Youtube.swift */; };
+		04EBE1E71FC3E1E0000C8C62 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EBE1E61FC3E1E0000C8C62 /* UserDefaults.swift */; };
 		BDBEEC0F1BAD9B520085C017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBEEC0E1BAD9B520085C017 /* AppDelegate.swift */; };
 		BDBEEC111BAD9B520085C017 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBEEC101BAD9B520085C017 /* LiveViewController.swift */; };
 		BDBEEC161BAD9B520085C017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDBEEC141BAD9B520085C017 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		040B90F31FB0050F00A5070D /* DaveRamseyShowAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DaveRamseyShowAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		040B90FC1FB020C800A5070D /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		040B90FE1FB0260200A5070D /* Youtube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
+		04EBE1E61FC3E1E0000C8C62 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		BDBEEC0B1BAD9B520085C017 /* DaveRamseyShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaveRamseyShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDBEEC0E1BAD9B520085C017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDBEEC101BAD9B520085C017 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				BDBEEC141BAD9B520085C017 /* Main.storyboard */,
 				BDBEEC171BAD9B520085C017 /* Assets.xcassets */,
 				BDBEEC191BAD9B520085C017 /* Info.plist */,
+				04EBE1E61FC3E1E0000C8C62 /* UserDefaults.swift */,
 			);
 			path = DaveRamseyShow;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				040B90FD1FB020C800A5070D /* EpisodesViewController.swift in Sources */,
+				04EBE1E71FC3E1E0000C8C62 /* UserDefaults.swift in Sources */,
 				040B90FF1FB0260300A5070D /* Youtube.swift in Sources */,
 				BDBEEC0F1BAD9B520085C017 /* AppDelegate.swift in Sources */,
 				BDBEEC111BAD9B520085C017 /* LiveViewController.swift in Sources */,
