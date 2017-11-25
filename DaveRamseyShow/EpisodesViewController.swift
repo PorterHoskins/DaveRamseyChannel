@@ -58,6 +58,8 @@ class EpisodesViewController: UIViewController {
             
             self.playerViewController = nil
             self.selectedEpisode = nil
+            
+            tableView.reloadData()
         }
     }
 
@@ -76,9 +78,6 @@ class EpisodesViewController: UIViewController {
         
         player.addObserver(self, forKeyPath: #keyPath(AVPlayer.status), options: .new, context: nil)
         player.addObserver(self, forKeyPath: #keyPath(AVPlayer.currentItem.duration), options: .new, context: nil)
-        
-        
-        
         
         self.playerViewController = playerViewController
         self.selectedEpisode = sender
@@ -107,29 +106,37 @@ class EpisodesViewController: UIViewController {
 
 extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let shows = episodes[indexPath.section].showHours
+        let episode = episodes[indexPath.row]
+        let shows = episode.showHours
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EpisodeCell
-        cell.label?.text = shows.map({ $0.title }).joined(separator: ", ")
+        cell.titleLabel.text = headerDateFormatter.string(from: episode.broadcastDate)
+        cell.descriptionLabel?.text = shows.map({ "• \($0.title)" }).joined(separator: "\n")
+        
+        let percentWatched = Float(UserDefaults.watchedPercentage(for: episode.id))
+        cell.progressView.progress = percentWatched
+        
+        let progressString: String
+        switch percentWatched {
+        case 0:
+            progressString = NSLocalizedString("Unplayed", comment: "Unplayed")
+        case 1:
+            progressString = NSLocalizedString("Completed", comment: "Completed")
+        default:
+            progressString = String(format: NSLocalizedString("%d%% Watched", comment: "Percent of show watched"), Int(percentWatched * 100))
+        }
+        cell.progressLabel.text = progressString
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return headerDateFormatter.string(from: episodes[section].broadcastDate)
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let show = episodes[indexPath.section].showHours[indexPath.row]
+        guard let show = episodes[indexPath.row].showHours.first else { return }
         
         Youtube.h264videosWithYoutubeURL(show.watchURL) { [weak self] videoInfo, error in
             guard let videoURLString = videoInfo?["url"] as? String, let videoURL = URL(string: videoURLString) else { return }
@@ -141,5 +148,8 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 class EpisodeCell: UITableViewCell {
-    @IBOutlet var label: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet var progressLabel: UILabel!
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="13770" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c1I-nA-hcb">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="13529" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c1I-nA-hcb">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,29 +26,63 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="pg7-Yi-FZv" customClass="EpisodeCell" customModule="DaveRamseyShow" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="1920" height="66"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="337" id="pg7-Yi-FZv" customClass="EpisodeCell" customModule="DaveRamseyShow" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="66" width="1920" height="337"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pg7-Yi-FZv" id="Uj2-YJ-VWJ">
-                                            <rect key="frame" x="90" y="0.0" width="1740" height="66"/>
+                                            <rect key="frame" x="90" y="0.0" width="1740" height="337"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-a9-wUd">
-                                                    <rect key="frame" x="0.0" y="20" width="1740" height="26"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qs7-rx-ZpH">
+                                                    <rect key="frame" x="0.0" y="20" width="1740" height="297"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="J4Z-Vg-VVP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="1740" height="227"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7L-HI-7i0">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="1740" height="69"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-a9-wUd">
+                                                                    <rect key="frame" x="0.0" y="79" width="1740" height="148"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Pug-cF-ZIH">
+                                                            <rect key="frame" x="0.0" y="252" width="1740" height="45"/>
+                                                            <subviews>
+                                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0cz-9X-lDr">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="1740" height="10"/>
+                                                                    <color key="progressTintColor" red="0.29411764709999999" green="0.52941176469999995" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </progressView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6U7-py-NrB">
+                                                                    <rect key="frame" x="0.0" y="15" width="1740" height="30"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="yG6-a9-wUd" firstAttribute="leading" secondItem="Uj2-YJ-VWJ" secondAttribute="leading" id="Tgg-jS-vPA"/>
-                                                <constraint firstItem="yG6-a9-wUd" firstAttribute="top" secondItem="Uj2-YJ-VWJ" secondAttribute="top" constant="20" id="UDX-la-X2z"/>
-                                                <constraint firstAttribute="bottom" secondItem="yG6-a9-wUd" secondAttribute="bottom" constant="20" id="VPo-s1-SoM"/>
-                                                <constraint firstAttribute="trailing" secondItem="yG6-a9-wUd" secondAttribute="trailing" id="fIE-wJ-JVp"/>
+                                                <constraint firstItem="qs7-rx-ZpH" firstAttribute="leading" secondItem="Uj2-YJ-VWJ" secondAttribute="leading" id="9nG-Qp-Thb"/>
+                                                <constraint firstAttribute="bottom" secondItem="qs7-rx-ZpH" secondAttribute="bottom" constant="20" id="E2t-e4-cSN"/>
+                                                <constraint firstItem="qs7-rx-ZpH" firstAttribute="top" secondItem="Uj2-YJ-VWJ" secondAttribute="top" constant="20" id="Ie5-Lm-wUu"/>
+                                                <constraint firstAttribute="trailing" secondItem="qs7-rx-ZpH" secondAttribute="trailing" id="bTo-S7-MOu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="label" destination="yG6-a9-wUd" id="pKA-h6-rvt"/>
+                                            <outlet property="descriptionLabel" destination="yG6-a9-wUd" id="cmp-4i-FUK"/>
+                                            <outlet property="progressLabel" destination="6U7-py-NrB" id="q5j-hn-99G"/>
+                                            <outlet property="progressView" destination="0cz-9X-lDr" id="HwI-Xe-tq1"/>
+                                            <outlet property="titleLabel" destination="Y7L-HI-7i0" id="RPH-Mo-4yp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -169,6 +203,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ul2-5E-bGR"/>
+        <segue reference="h5c-t1-UiJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,10 @@ public struct LiveShowResponse: Codable {
         return items.first?.snippet.resource.videoURL
     }
     
+    public var videoID: String? {
+        return items.first?.snippet.resource.videoID
+    }
+    
     public var thumbnails: [String: LiveShowItem.Snippet.Thumbnail] {
         return items.first?.snippet.thumbnails ?? [:]
     }
