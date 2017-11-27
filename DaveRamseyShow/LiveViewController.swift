@@ -60,7 +60,7 @@ class LiveViewController: UIViewController {
         super.viewDidAppear(animated)
         
         // Check to see if we are coming back from a presentedPlayerViewController and save the duration if we aren't watching the live show.
-        if !isLive, let playerItem = presentedPlayerViewController?.player?.currentItem, let videoID = videoID {
+        if let playerItem = presentedPlayerViewController?.player?.currentItem, let videoID = videoID {
             let currentTime = CMTimeGetSeconds(playerItem.currentTime())
             let duration = CMTimeGetSeconds(playerItem.duration)
             
@@ -135,7 +135,7 @@ class LiveViewController: UIViewController {
         
         guard player.status == .readyToPlay else { return }
         
-        guard let duration = player.currentItem?.duration, duration != kCMTimeIndefinite else {
+        guard !isLive, let duration = player.currentItem?.duration, duration != kCMTimeIndefinite else {
             player.play()
             
             return
